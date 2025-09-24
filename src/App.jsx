@@ -14,6 +14,59 @@ const figury = {
   krol: "Krol"
 }
 
+class brak{
+  constructor(){
+
+  }
+}
+class pion{
+  constructor(img, move){
+    this.img=img;
+    this.move=move;
+  }
+move.calculateMove("pion");
+}
+class skoczek{
+  constructor(img, move){
+    this.img=img;
+    this.move=move;
+  }
+}
+class goniec{
+  constructor(img, move){
+    this.img=img;
+    this.move=move;
+  }
+}
+class wieza{
+  constructor(img, move){
+    this.img=img;
+    this.move=move;
+  }
+}
+class hetman{
+  constructor(img, move){
+    this.img=img;
+    this.move=move;
+  }
+}
+class krol{
+  constructor(img, move){
+    this.img=img;
+    this.move=move;
+  }
+}
+class figuryC {
+constructor(brak, pion, skoczek, goniec, wieza, hetman, krol){
+  this.brak=brak;
+  this.pion=pion;
+  this.skoczek=skoczek;
+  this.goniec=goniec;
+  this.wieza=wieza;
+  this.hetman=hetman;
+  this.krol=krol;
+}
+}
 class PoleSzachownicy {
   constructor(kolorPola, kolorPrzeciwnika, figura, czyBije, czySieRusza) {
     this.kolorPola = kolorPola;
@@ -117,7 +170,8 @@ function Plansza() {
 function Pole( {PoleSzachownicy: PoleSzachownicy }) {
   function poleClick() {
     if (!czySieRusza) {
-      // Sprawdzanie gdzie sie mozna ruszac
+      piece = PoleSzachownicy.figura;
+      console.log(piece);
     }
     else {
       // Ruszenie sie
