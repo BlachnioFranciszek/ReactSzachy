@@ -172,6 +172,27 @@ function Pole( {PoleSzachownicy: PoleSzachownicy }) {
     if (!czySieRusza) {
       piece = PoleSzachownicy.figura;
       console.log(piece);
+      switch (piece) {
+          case "Pion":
+          
+          break;
+          case "Skoczek":
+          
+          break;
+          case "Goniec":
+          
+          break;
+          case "Wieza":
+          
+          break;
+          case "Hetman":
+          
+          break;
+          case "Krol":
+          
+          break;
+        default:break;
+      }
     }
     else {
       // Ruszenie sie
