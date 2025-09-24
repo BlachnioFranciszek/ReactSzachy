@@ -95,6 +95,29 @@ plansza[7] = [
 ]
 
 
+function Gra() {
+  const [czyGra, setCzyGra] = useState(false);
+
+  function startGraLokalna() {
+    document.title = "Szachy cs local";
+    setCzyGra(true)
+  }
+
+
+  if (czyGra) {
+    return <Plansza/>
+  }
+  else {
+    return (
+      <>
+        <h1>Szachy</h1>
+        <h3>Zagraj w szachy na komputerze</h3>
+        <button onClick={startGraLokalna}>Zagraj lokalnie z innym graczem</button>
+      </>
+    );
+  }
+  
+}
 
 function Plansza() {
   const [szachownica, setSzachownica] = useState(plansza);
@@ -127,4 +150,4 @@ function Pole( {PoleSzachownicy: PoleSzachownicy }) {
   return <div className='poleSzachownicy' onClick={poleClick}>{PoleSzachownicy.kolorPola} {PoleSzachownicy.kolorPrzeciwnika} - {PoleSzachownicy.figura}</div>;
 }
 
-export default Plansza
+export default Gra

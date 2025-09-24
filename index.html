@@ -2,19 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Szachy</title>
-    <script>
-      function myFunction() {
-        location.href = "chess.html";
-      }
-      </script>
       <link rel="stylesheet" href="src/App.css">
   </head>
   <body>
-    <h1>Szachy</h1>
-    <h3>Zagraj w szachy na komputerze</h3>
-    <button onclick="myFunction()">Zagraj lokalnie z innym graczem</button>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
