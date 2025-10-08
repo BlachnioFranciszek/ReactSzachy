@@ -29,6 +29,7 @@ class PoleSzachownicy {
 const plansza = new Array(wysokosc).fill(0).map(() => new Array(szerokosc).fill(0));
 
 // Petla wypelnia tablice plansza polami w odpowiednich kolorach, pomijamy 2 pierwsze i ostatnie rzedy poniewaz przydzielimy im pola pozniej
+var p;
 for (let i = 2; i < plansza.length - 2; i++) {
   for (let j = 0; j < plansza[i].length; j++) {
     switch(j){
