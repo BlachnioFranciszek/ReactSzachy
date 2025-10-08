@@ -183,6 +183,13 @@ function Pole( {PoleSzachownicy: PoleSzachownicy }) {
     }
     else {
       // Ruszenie sie
+
+      if(czySieRuszaBialy){
+        czySieRuszaBialy=false;
+      }
+      else{
+        czySieRuszaBialy=true;
+      }
     }
   }
 
