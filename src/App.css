@@ -3,7 +3,7 @@
   height: 100px;
 }
 
-#szachownica {
+#szachownicaDiv {
   display: grid;
   grid-template-columns: repeat(8, 100px);
   gap: 5px; 
