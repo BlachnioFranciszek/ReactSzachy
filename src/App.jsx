@@ -3,6 +3,7 @@ import './App.css'
 
 const wysokosc = 8;
 const szerokosc = 8;
+var czySieRuszaBialy = true;
 
 const figury = {
   brak: "Brak",
@@ -141,27 +142,59 @@ function Plansza() {
 
   for (let i = 0; i < szachownica.length; i++) {
     for (let j = 0; j < szachownica[i].length; j++) {
-      doDruku.push(<Pole key={i + " " + j} PoleSzachownicy={szachownica[i][j]}></Pole>);
+      doDruku.push(<Pole key={i + " " + j} szachownica={szachownica} PoleSzachownicy={szachownica[i][j]}></Pole>);
     }
   }
 
   return (
-    <div id='szachownica'>
+    <div id='szachownicaDiv'>
       {doDruku}
     </div>
   );
 }
 
-function Pole( {PoleSzachownicy: PoleSzachownicy }) {
+function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
   function poleClick() {
-    if (!czySieRusza) {
-      piece = PoleSzachownicy.figura;
-      row = PoleSzachownicy.x;
-      col = PoleSzachownicy.y;
+    console.log(szachownica);
+    if (!PoleSzachownicy.czySieRusza) {
+      let piece = PoleSzachownicy.figura;
+      let row = PoleSzachownicy.x - 1;
+      let col = PoleSzachownicy.y - 1;
       console.log(piece);
+      console.log(row);
+      console.log(col);
       switch (piece) {
           case "Pion":
-          
+            if (czySieRuszaBialy) {
+              // Ruszenie sie prosto
+              if (row == 2) {
+                if (szachownica[col][row+1].figura == figura.brak) {
+                  szachownica[col][row+1].czySieRusza == true;
+                  if (szachownica[col][row+2].figura == figura.brak) {
+                    szachownica[col][row+2].czySieRusza == true;
+                  }
+                }
+              }
+              else {
+                if (szachownica[col][row+1].figura == figura.brak) {
+                  szachownica[col][row+1].czySieRusza == true;
+                }
+              }
+              // Bicie
+              try {
+                if (szachownica[col+1][row+1].figura != figura.brak && szachownica[col+1][row+1].kolorPrzeciwnika == "czarny") {
+                  szachownica[col+1][row+1].czyBije == true;
+                  szachownica[col+1][row+1].czySieRusza == true;
+                }
+              } catch (error) {}
+              try {
+                if (szachownica[col-1][row+1].figura != figura.brak && szachownica[col-1][row+1].kolorPrzeciwnika == "czarny") {
+                  szachownica[col-1][row+1].czyBije == true;
+                  szachownica[col-1][row+1].czySieRusza == true;
+                }
+              } catch (error) {}
+
+            }
           break;
           case "Skoczek":
           
