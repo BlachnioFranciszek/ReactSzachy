@@ -191,7 +191,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
                 if (szachownica[col-1][row+1].figura != figura.brak && szachownica[col-1][row+1].kolorPrzeciwnika == "czarny") {
                   szachownica[col-1][row+1].czyBije == true;
                   szachownica[col-1][row+1].czySieRusza == true;
-                }
+                }sa
               } catch (error) {}
 
             }
@@ -203,22 +203,43 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
           
           break;
           case "Wieza":
-            for(col+1; col <= 8; col++){
+            let tempx = row;
+            let tempy = col;
+            for(col+1; col <= 7; col++){
               if(szachownica[col][row].figura == figura.brak){
+                szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "bialy" && szachownica[col+1][row+1].kolorPrzeciwnika == "czarny"){
+                szachownica[col][row].czyBije=true;
+                szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "czarny" && szachownica[col+1][row+1].kolorPrzeciwnika == "bialy"){
+                szachownica[col][row].czyBije=true;
                 szachownica[col][row].czySieRusza = true;
               }else{
                 break;
+          
               }
             }
             for(col-1; col >= 0; col--){
               if(szachownica[col][row].figura == figura.brak){
                 szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "bialy" && szachownica[col+1][row+1].kolorPrzeciwnika == "czarny"){
+                szachownica[col][row].czyBije=true;
+                szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "czarny" && szachownica[col+1][row+1].kolorPrzeciwnika == "bialy"){
+                szachownica[col][row].czyBije=true;
+                szachownica[col][row].czySieRusza = true;
               }else{
                 break;
               }
             }
-            for(row+1; row <= 8; row++){
+            for(row+1; row <= 7; row++){
               if(szachownica[col][row].figura == figura.brak){
+                szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "bialy" && szachownica[col+1][row+1].kolorPrzeciwnika == "czarny"){
+                szachownica[col][row].czyBije=true;
+                szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "czarny" && szachownica[col+1][row+1].kolorPrzeciwnika == "bialy"){
+                szachownica[col][row].czyBije=true;
                 szachownica[col][row].czySieRusza = true;
               }else{
                 break;
@@ -226,6 +247,12 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
             }
             for(row-1; row >= 0; row--){
               if(szachownica[col][row].figura == figura.brak){
+                szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "bialy" && szachownica[col+1][row+1].kolorPrzeciwnika == "czarny"){
+                szachownica[col][row].czyBije=true;
+                szachownica[col][row].czySieRusza = true;
+              }else if(szachownica[col][row].figura != figura.brak && szachownica[tempy][tempx].kolorPrzeciwnika == "czarny" && szachownica[col+1][row+1].kolorPrzeciwnika == "bialy"){
+                szachownica[col][row].czyBije=true;
                 szachownica[col][row].czySieRusza = true;
               }else{
                 break;
