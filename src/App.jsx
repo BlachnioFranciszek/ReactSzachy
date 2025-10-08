@@ -15,7 +15,7 @@ const figury = {
 }
 
 class PoleSzachownicy {
-  constructor(x, y, file,  kolorPola, kolorPrzeciwnika, figura, czyBije, czySieRusza) {
+  constructor(y, file, x, kolorPola, kolorPrzeciwnika, figura, czyBije, czySieRusza) {
     this.x=x;
     this.y=y;
     this.file=file;
@@ -156,6 +156,8 @@ function Pole( {PoleSzachownicy: PoleSzachownicy }) {
   function poleClick() {
     if (!czySieRusza) {
       piece = PoleSzachownicy.figura;
+      row = PoleSzachownicy.x;
+      col = PoleSzachownicy.y;
       console.log(piece);
       switch (piece) {
           case "Pion":
