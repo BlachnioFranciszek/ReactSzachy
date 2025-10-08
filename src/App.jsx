@@ -196,8 +196,135 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
 
             }
           break;
-          case "Skoczek":
-          
+        case "Skoczek":
+          if (czySieRuszaBialy){
+            if (szachownica[col+1][row+2].figura == figury.brak){
+              szachownica[col+1][row+2].czySieRusza==true;
+            }
+            if (szachownica[col+1][row+2].kolorPrzeciwnika == "czarny"){
+              szachownica[col+1][row+2].czySieRusza==true;
+              szachownica[col+1][row+2].czyBije==true;
+            }
+
+            if (szachownica[col+2][row+1].figura == figury.brak){
+              szachownica[col+2][row+1].czySieRusza==true;
+            }
+            if (szachownica[col+2][row+1].kolorPrzeciwnika == "czarny"){
+              szachownica[col+2][row+1].czySieRusza==true;
+              szachownica[col+2][row+1].czyBije==true;
+            }
+
+            if (szachownica[col+2][row-1].figura == figury.brak){
+              szachownica[col+2][row-1].czySieRusza==true;
+            }
+            if (szachownica[col+2][row-1].kolorPrzeciwnika == "czarny"){
+              szachownica[col+2][row-1].czySieRusza==true;
+              szachownica[col+2][row-1].czyBije==true;
+            }
+
+            if (szachownica[col+1][row-2].figura == figury.brak){
+              szachownica[col+1][row-2].czySieRusza==true;
+            }
+            if (szachownica[col+1][row-2].kolorPrzeciwnika == "czarny"){
+              szachownica[col+1][row-2].czySieRusza==true;
+              szachownica[col+1][row-2].czyBije==true;
+            }
+
+            if (szachownica[col-1][row-2].figura == figury.brak){
+              szachownica[col-1][row-2].czySieRusza==true;
+            }
+            if (szachownica[col-1][row-2].kolorPrzeciwnika == "czarny"){
+              szachownica[col-1][row-2].czySieRusza==true;
+              szachownica[col-1][row-2].czyBije==true;
+            }
+
+            if (szachownica[col-2][row-1].figura == figury.brak){
+              szachownica[col-2][row-1].czySieRusza==true;
+            }
+            if (szachownica[col-2][row-1].kolorPrzeciwnika == "czarny"){
+              szachownica[col-2][row-1].czySieRusza==true;
+              szachownica[col-2][row-1].czyBije==true;
+            }
+
+            if (szachownica[col-2][row+1].figura == figury.brak){
+              szachownica[col-2][row+1].czySieRusza==true;
+            }
+            if (szachownica[col-2][row+1].kolorPrzeciwnika == "czarny"){
+              szachownica[col-2][row+1].czySieRusza==true;
+              szachownica[col-2][row+1].czyBije==true;
+            }
+            if (szachownica[col-1][row+2].figura == figury.brak){
+              szachownica[col-1][row+2].czySieRusza==true;
+            }
+            if (szachownica[col-1][row+2].kolorPrzeciwnika == "czarny"){
+              szachownica[col-1][row+2].czySieRusza==true;
+              szachownica[col-1][row+2].czyBije==true;
+            }
+          }
+          else{
+            if (szachownica[col+1][row+2].figura == figury.brak){
+              szachownica[col+1][row+2].czySieRusza==true;
+            }
+            if (szachownica[col+1][row+2].kolorPrzeciwnika == "bialy"){
+              szachownica[col+1][row+2].czySieRusza==true;
+              szachownica[col+1][row+2].czyBije==true;
+            }
+
+            if (szachownica[col+2][row+1].figura == figury.brak){
+              szachownica[col+2][row+1].czySieRusza==true;
+            }
+            if (szachownica[col+2][row+1].kolorPrzeciwnika == "bialy"){
+              szachownica[col+2][row+1].czySieRusza==true;
+              szachownica[col+2][row+1].czyBije==true;
+            }
+
+            if (szachownica[col+2][row-1].figura == figury.brak){
+              szachownica[col+2][row-1].czySieRusza==true;
+            }
+            if (szachownica[col+2][row-1].kolorPrzeciwnika == "bialy"){
+              szachownica[col+2][row-1].czySieRusza==true;
+              szachownica[col+2][row-1].czyBije==true;
+            }
+
+            if (szachownica[col+1][row-2].figura == figury.brak){
+              szachownica[col+1][row-2].czySieRusza==true;
+            }
+            if (szachownica[col+1][row-2].kolorPrzeciwnika == "bialy"){
+              szachownica[col+1][row-2].czySieRusza==true;
+              szachownica[col+1][row-2].czyBije==true;
+            }
+
+            if (szachownica[col-1][row-2].figura == figury.brak){
+              szachownica[col-1][row-2].czySieRusza==true;
+            }
+            if (szachownica[col-1][row-2].kolorPrzeciwnika == "bialy"){
+              szachownica[col-1][row-2].czySieRusza==true;
+              szachownica[col-1][row-2].czyBije==true;
+            }
+
+            if (szachownica[col-2][row-1].figura == figury.brak){
+              szachownica[col-2][row-1].czySieRusza==true;
+            }
+            if (szachownica[col-2][row-1].kolorPrzeciwnika == "bialy"){
+              szachownica[col-2][row-1].czySieRusza==true;
+              szachownica[col-2][row-1].czyBije==true;
+            }
+
+            if (szachownica[col-2][row+1].figura == figury.brak){
+              szachownica[col-2][row+1].czySieRusza==true;
+            }
+            if (szachownica[col-2][row+1].kolorPrzeciwnika == "bialy"){
+              szachownica[col-2][row+1].czySieRusza==true;
+              szachownica[col-2][row+1].czyBije==true;
+            }
+            if (szachownica[col-1][row+2].figura == figury.brak){
+              szachownica[col-1][row+2].czySieRusza==true;
+            }
+            if (szachownica[col-1][row+2].kolorPrzeciwnika == "bialy"){
+              szachownica[col-1][row+2].czySieRusza==true;
+              szachownica[col-1][row+2].czyBije==true;
+            }
+          }
           break;
           case "Goniec":
           
