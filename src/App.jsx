@@ -170,7 +170,35 @@ function Pole( {PoleSzachownicy: PoleSzachownicy }) {
           
           break;
           case "Wieza":
-          
+            for(col+1; col <= 8; col++){
+              if(szachownica[col][row].figura == figura.brak){
+                szachownica[col][row].czySieRusza = true;
+              }else{
+                break;
+              }
+            }
+            for(col-1; col >= 0; col--){
+              if(szachownica[col][row].figura == figura.brak){
+                szachownica[col][row].czySieRusza = true;
+              }else{
+                break;
+              }
+            }
+            for(row+1; row <= 8; row++){
+              if(szachownica[col][row].figura == figura.brak){
+                szachownica[col][row].czySieRusza = true;
+              }else{
+                break;
+              }
+            }
+            for(row-1; row >= 0; row--){
+              if(szachownica[col][row].figura == figura.brak){
+                szachownica[col][row].czySieRusza = true;
+              }else{
+                break;
+              }
+            }
+            
           break;
           case "Hetman":
           
