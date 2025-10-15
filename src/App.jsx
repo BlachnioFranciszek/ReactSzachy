@@ -267,15 +267,34 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
             }
           break;
           case "Skoczek":
-          
+            
           break;
           case "Goniec":
-          
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              console.log("E")
+              break;
+            }
+
+            for (col+1, row+1; col < 7, row < 7; col++, row++) {
+              console.log(row)
+              console.log(col)
+              if (szachownica[row][col].figura == figury.brak) {
+                szachownica[row][col].czySieRusza = true;
+              }
+              else {
+                if ((szachownica[row][col].kolorPrzeciwnika == "czarny" && czySieRuszaBialy) || (szachownica[row][col].kolorPrzeciwnika == "bialy" && !czySieRuszaBialy)) {
+                  szachownica[row][col].czySieRusza = true;
+                  szachownica[row][col].czyBije = true;
+                }
+                break;
+              }
+            }
+
           break;
           case "Wieza":
             let tempx = row;
             let tempy = col;
-            for(col+1; col <= 7; col++){
+            for(col+1; col < 7; col++){
               console.log(row);
               console.log(col);
               if(col != 8){
@@ -298,7 +317,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                   break;
               }
             }
-            for(col-1; col >= 0; col--){
+            for(col-1; col > 0; col--){
               console.log(row);
               console.log(col);
               if(col != -1){
@@ -321,7 +340,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                   break;
               }
             }
-            for(row+1; row <= 7; row++){
+            for(row+1; row < 7; row++){
               if(row != 8){
                 console.log(row);
               console.log(col);
@@ -344,7 +363,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                   break;
               }
             }
-            for(row-1; row >= 0; row--){
+            for(row-1; row > 0; row--){
               if(row != -1){
                 console.log(row);
                 console.log(col);
