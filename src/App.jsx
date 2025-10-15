@@ -356,10 +356,35 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
       }
     }
     else {
-      szachownica[row][col].figura = szachownica[ktoSieRusza.x][ktoSieRusza.y].figura;
-      szachownica[row][col].kolorPrzeciwnika = szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika;
-      szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
-      szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika = "brak";
+      if (czySieRuszaBialy) {
+        if (szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[row][col].czyBije) {
+          szachownica[row][col].figura = szachownica[ktoSieRusza.x][ktoSieRusza.y].figura;
+          szachownica[row][col].kolorPrzeciwnika = szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika = "brak";
+        }
+        else if (szachownica[row][col].figura == figury.brak) {
+          szachownica[row][col].figura = szachownica[ktoSieRusza.x][ktoSieRusza.y].figura;
+          szachownica[row][col].kolorPrzeciwnika = szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika = "brak";
+        }
+      }
+      else {
+        if (szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[row][col].czyBije) {
+          szachownica[row][col].figura = szachownica[ktoSieRusza.x][ktoSieRusza.y].figura;
+          szachownica[row][col].kolorPrzeciwnika = szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika = "brak";
+        }
+        else if (szachownica[row][col].figura == figury.brak) {
+          szachownica[row][col].figura = szachownica[ktoSieRusza.x][ktoSieRusza.y].figura;
+          szachownica[row][col].kolorPrzeciwnika = szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
+          szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika = "brak";
+        }
+      }
+
       resetBoard();
       // Ruszenie sie
 
