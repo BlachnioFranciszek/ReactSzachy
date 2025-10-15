@@ -139,11 +139,15 @@ function Gra() {
 function Plansza() {
   const [szachownica, setSzachownica] = useState(plansza);
 
+  function updateSzachownica(szachownica) {
+    setSzachownica(szachownica);
+  }
+
   const doDruku = [];
 
   for (let i = 0; i < szachownica.length; i++) {
     for (let j = 0; j < szachownica[i].length; j++) {
-      doDruku.push(<Pole key={i + " " + j} szachownica={structuredClone(szachownica)} PoleSzachownicy={szachownica[i][j]}></Pole>);
+      doDruku.push(<Pole key={i + " " + j} szachownica={structuredClone(szachownica)} PoleSzachownicy={szachownica[i][j]} updateSzachownica={updateSzachownica}></Pole>);
     }
   }
 
@@ -154,13 +158,13 @@ function Plansza() {
   );
 }
 
-function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
+function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, updateSzachownica: updateSzachownica }) {
   function poleClick() {
     console.log(szachownica);
     if (!PoleSzachownicy.czySieRusza) {
       let piece = PoleSzachownicy.figura;
       let col = PoleSzachownicy.y - 1;
-      let row = PoleSzachownicy.x - 1;
+      let row = szachownica.length - PoleSzachownicy.x;
       console.log(piece);
       console.log("rzad " + row); 
       console.log("kolumna " + col);
@@ -168,25 +172,24 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
           case "Pion":
             if (czySieRuszaBialy) {
               // Ruszenie sie prosto
-              if (row == 1) {
-                if (szachownica[row+1][col].figura == figury.brak) {
-                  szachownica[row+1][col].czySieRusza = true;
-                  console.log(szachownica[row+1][col].czySieRusza)
-                  if (szachownica[row+2][col].figura = figury.brak) {
-                    szachownica[row+2][col].czySieRusza = true;
+              if (row == 6) {
+                if (szachownica[row-1][col].figura == figury.brak) {
+                  szachownica[row-1][col].czySieRusza = true;
+                  if (szachownica[row-2][col].figura = figury.brak) {
+                    szachownica[row-2][col].czySieRusza = true;
                   }
                 }
               }
               else {
-                if (szachownica[row+1][col].figura == figury.brak) {
+                if (szachownica[row-1][col].figura == figury.brak) {
                   szachownica[row][col+1].czySieRusza = true;
                 }
               }
               // Bicie
               try {
-                if (szachownica[row+1][col+1].figura != figury.brak && szachownica[row+1][col+1].kolorPrzeciwnika == "czarny") {
-                  szachownica[row+1][col+1].czyBije = true;
-                  szachownica[row+1][col+1].czySieRusza = true;
+                if (szachownica[row-1][col-1].figura != figury.brak && szachownica[row-1][col-1].kolorPrzeciwnika == "czarny") {
+                  szachownica[row-1][col-1].czyBije = true;
+                  szachownica[row-1][col-1].czySieRusza = true;
                 }
               } catch (error) {}
               try {
@@ -298,9 +301,11 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica }) {
         czySieRuszaBialy=true;
       }
     }
+
+    updateSzachownica(szachownica);
   }
 
-  return <div className='poleSzachownicy' onClick={poleClick}>{PoleSzachownicy.kolorPola} {PoleSzachownicy.kolorPrzeciwnika} - {PoleSzachownicy.figura}</div>;
+  return <div className='poleSzachownicy' onClick={poleClick}>{PoleSzachownicy.kolorPola} {PoleSzachownicy.kolorPrzeciwnika} - {PoleSzachownicy.figura} {PoleSzachownicy.czySieRusza ? "True" : "False"}</div>;
 }
 
 export default Gra
