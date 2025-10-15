@@ -267,10 +267,29 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
             }
           break;
           case "Skoczek":
-          
+            
           break;
           case "Goniec":
-          
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              console.log("E")
+              break;
+            }
+
+            for (col+1, row+1; col < 7, row < 7; col++, row++) {
+              console.log(row)
+              console.log(col)
+              if (szachownica[row][col].figura == figury.brak) {
+                szachownica[row][col].czySieRusza = true;
+              }
+              else {
+                if ((szachownica[row][col].kolorPrzeciwnika == "czarny" && czySieRuszaBialy) || (szachownica[row][col].kolorPrzeciwnika == "bialy" && !czySieRuszaBialy)) {
+                  szachownica[row][col].czySieRusza = true;
+                  szachownica[row][col].czyBije = true;
+                }
+                break;
+              }
+            }
+
           break;
           case "Wieza":
      
