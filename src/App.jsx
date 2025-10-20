@@ -267,30 +267,60 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
             }
           break;
           case "Skoczek":
-          
+            
           break;
           case "Goniec":
-          
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              console.log("E")
+              break;
+            }
+
+            for (col+1, row+1; col < 7, row < 7; col++, row++) {
+              console.log(row)
+              console.log(col)
+              if (szachownica[row][col].figura == figury.brak) {
+                szachownica[row][col].czySieRusza = true;
+              }
+              else {
+                if ((szachownica[row][col].kolorPrzeciwnika == "czarny" && czySieRuszaBialy) || (szachownica[row][col].kolorPrzeciwnika == "bialy" && !czySieRuszaBialy)) {
+                  szachownica[row][col].czySieRusza = true;
+                  szachownica[row][col].czyBije = true;
+                }
+                break;
+              }
+            }
+
           break;
           case "Wieza":
-            let tempx = row;
-            let tempy = col;
-            for(col+1; col <= 7; col++){
+     
+            let tempy1 = col+1;
+            let tempy2= col-1;
+            let tempx1 = row+1;
+            let tempx2 = row-1;
+            for(tempy1; tempy1 < 7; tempy1++){
               console.log(row);
-              console.log(col);
-              if(col != 8){
-                if(szachownica[row][col].figura == figury.brak){
-                  szachownica[row][col].czySieRusza = true;
+              console.log(tempy1);
+              if(tempy1 != 8){
+                if(szachownica[row][tempy1].figura == figury.brak){
+                  szachownica[row][tempy1].czySieRusza = true;
                   console.log("true");
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "bialy" && szachownica[row][col].kolorPrzeciwnika == "czarny"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[row][tempy1].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[row][tempy1].kolorPrzeciwnika == "czarny"){
+                  szachownica[row][tempy1].czyBije=true;
+                  szachownica[row][tempy1].czySieRusza = true;
                   console.log("true");
                   break;
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "czarny" && szachownica[row][col].kolorPrzeciwnika == "bialy"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[row][tempy1].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[row][tempy1].kolorPrzeciwnika == "bialy"){
+                  szachownica[row][tempy1].czyBije=true;
+                  szachownica[row][tempy1].czySieRusza = true;
                   console.log("true");
+                  break;
+                }
+                else if(szachownica[row][tempy1].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[row][tempy1].kolorPrzeciwnika == "bialy"){
+                  console.log("false");
+                  break;
+                }
+                else if(szachownica[row][tempy1].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[row][tempy1].kolorPrzeciwnika == "czarny"){
+                  console.log("false");
                   break;
                 }
               }else{
@@ -298,22 +328,30 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                   break;
               }
             }
-            for(col-1; col >= 0; col--){
+            for(tempy2; tempy2 > 0; tempy2--){
               console.log(row);
-              console.log(col);
-              if(col != -1){
-                if(szachownica[row][col].figura == figury.brak){
-                  szachownica[row][col].czySieRusza = true;
+              console.log(tempy2);
+              if(tempy2 != -1){
+                if(szachownica[row][tempy2].figura == figury.brak){
+                  szachownica[row][tempy2].czySieRusza = true;
                   console.log("true");
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "bialy" && szachownica[row][col].kolorPrzeciwnika == "czarny"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[row][tempy2].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[row][tempy2].kolorPrzeciwnika == "czarny"){
+                  szachownica[row][tempy2].czyBije=true;
+                  szachownica[row][tempy2].czySieRusza = true;
                   console.log("true");
                   break;
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "czarny" && szachownica[row][col].kolorPrzeciwnika == "bialy"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[row][tempy2].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[row][tempy2].kolorPrzeciwnika == "bialy"){
+                  szachownica[row][tempy2].czyBije=true;
+                  szachownica[row][tempy2].czySieRusza = true;
                   console.log("true");
+                  break;
+                }
+                else if(szachownica[row][tempy2].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[row][tempy2].kolorPrzeciwnika == "bialy"){
+                  console.log("false");
+                  break;
+                }
+                else if(szachownica[row][tempy2].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[row][tempy2].kolorPrzeciwnika == "czarny"){
+                  console.log("false");
                   break;
                 }
               }else{
@@ -321,22 +359,30 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                   break;
               }
             }
-            for(row+1; row <= 7; row++){
-              if(row != 8){
-                console.log(row);
+            for(tempx1; tempx1 < 7; tempx1++){
+              console.log(tempx1);
               console.log(col);
-                if(szachownica[row][col].figura == figury.brak){
-                  szachownica[row][col].czySieRusza = true;
+              if(tempx1 != 8){
+                if(szachownica[tempx1][col].figura == figury.brak){
+                  szachownica[tempx1][col].czySieRusza = true;
                   console.log("true");
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "bialy" && szachownica[row][col].kolorPrzeciwnika == "czarny"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[row][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[tempx1][col].kolorPrzeciwnika == "czarny"){
+                  szachownica[tempx1][col].czyBije=true;
+                  szachownica[tempx1][col].czySieRusza = true;
                   console.log("true");
                   break;
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "czarny" && szachownica[row][col].kolorPrzeciwnika == "bialy"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[tempx1][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[tempx1][col].kolorPrzeciwnika == "bialy"){
+                  szachownica[tempx1][col].czyBije=true;
+                  szachownica[tempx1][col].czySieRusza = true;
                   console.log("true");
+                  break;
+                }
+                else if(szachownica[tempx1][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[tempx1][col].kolorPrzeciwnika == "bialy"){
+                  console.log("false");
+                  break;
+                }
+                else if(szachownica[tempx1][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[tempx1][col].kolorPrzeciwnika == "czarny"){
+                  console.log("false");
                   break;
                 }
               }else{
@@ -344,22 +390,31 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                   break;
               }
             }
-            for(row-1; row >= 0; row--){
-              if(row != -1){
-                console.log(row);
-                console.log(col);
-                if(szachownica[row][col].figura == figury.brak){
-                  szachownica[row][col].czySieRusza = true;
+
+            for(tempx2; tempx2 > 0; tempx2--){
+              console.log(tempx2);
+              console.log(col);
+              if(tempx2 != -1){
+                if(szachownica[tempx2][col].figura == figury.brak){
+                  szachownica[tempx2][col].czySieRusza = true;
                   console.log("true");
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "bialy" && szachownica[row][col].kolorPrzeciwnika == "czarny"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[tempx2][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[tempx2][col].kolorPrzeciwnika == "czarny"){
+                  szachownica[tempx2][col].czyBije=true;
+                  szachownica[tempx2][col].czySieRusza = true;
                   console.log("true");
                   break;
-                }else if(szachownica[row][col].figura != figury.brak && szachownica[tempx][tempy].kolorPrzeciwnika == "czarny" && szachownica[row][col].kolorPrzeciwnika == "bialy"){
-                  szachownica[row][col].czyBije=true;
-                  szachownica[row][col].czySieRusza = true;
+                }else if(szachownica[tempx2][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[tempx2][col].kolorPrzeciwnika == "bialy"){
+                  szachownica[tempx2][col].czyBije=true;
+                  szachownica[tempx2][col].czySieRusza = true;
                   console.log("true");
+                  break;
+                }
+                else if(szachownica[tempx2][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[tempx2][col].kolorPrzeciwnika == "bialy"){
+                  console.log("false");
+                  break;
+                }
+                else if(szachownica[tempx2][col].figura != figury.brak && szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[tempx2][col].kolorPrzeciwnika == "czarny"){
+                  console.log("false");
                   break;
                 }
               }else{
