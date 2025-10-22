@@ -1,6 +1,28 @@
 .poleSzachownicy {
+  position: relative;
   width: 100px;
   height: 100px;
+  text-align: center;
+}
+
+.zdjecieFigura {
+  height: 100px;
+  z-index: 1;
+}
+
+.bialePole {
+  background-color: gray;
+}
+
+.czarnePole {
+  background-color: wheat;
+}
+
+.zdjecieRuch {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
 }
 
 #szachownicaDiv {

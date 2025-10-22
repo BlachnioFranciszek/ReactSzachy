@@ -69,48 +69,48 @@ for (let i = 2; i < plansza.length - 2; i++) {
 
 // Uzupelnianie tablicy planszy figurami
 plansza[0] = [
-  new PoleSzachownicy(1, "a", 8, "bialy", "czarny", figury.wieza, false, false),
-  new PoleSzachownicy(2, "b", 8, "czarny", "czarny", figury.skoczek, false, false),
-  new PoleSzachownicy(3, "c", 8, "bialy", "czarny", figury.goniec, false, false),
-  new PoleSzachownicy(4, "d", 8, "czarny", "czarny", figury.hetman, false, false),
-  new PoleSzachownicy(5, "e", 8, "bialy", "czarny", figury.krol, false, false),
-  new PoleSzachownicy(6, "f", 8, "czarny", "czarny", figury.goniec, false, false),
-  new PoleSzachownicy(7, "g", 8, "bialy", "czarny", figury.skoczek, false, false),
-  new PoleSzachownicy(8, "h", 8, "czarny", "czarny", figury.wieza, false, false)
+  new PoleSzachownicy(1, "a", 8, "czarny", "czarny", figury.wieza, false, false),
+  new PoleSzachownicy(2, "b", 8, "bialy", "czarny", figury.skoczek, false, false),
+  new PoleSzachownicy(3, "c", 8, "czarny", "czarny", figury.goniec, false, false),
+  new PoleSzachownicy(4, "d", 8, "bialy", "czarny", figury.hetman, false, false),
+  new PoleSzachownicy(5, "e", 8, "czarny", "czarny", figury.krol, false, false),
+  new PoleSzachownicy(6, "f", 8, "bialy", "czarny", figury.goniec, false, false),
+  new PoleSzachownicy(7, "g", 8, "czarny", "czarny", figury.skoczek, false, false),
+  new PoleSzachownicy(8, "h", 8, "bialy", "czarny", figury.wieza, false, false)
 ]
 
 plansza[1] = [
-  new PoleSzachownicy(1, "a", 7, "czarny", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(2, "b", 7, "bialy", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(3, "c", 7, "czarny", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(4, "d", 7, "bialy", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(5, "e", 7, "czarny", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(6, "f", 7, "bialy", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(7, "g", 7, "czarny", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(8, "h", 7, "bialy", "brak", figury.brak, false, false)
+  new PoleSzachownicy(1, "a", 7, "bialy", "czarny", figury.pion, false, false),
+  new PoleSzachownicy(2, "b", 7, "czarny", "czarny", figury.pion, false, false),
+  new PoleSzachownicy(3, "c", 7, "bialy", "czarny", figury.pion, false, false),
+  new PoleSzachownicy(4, "d", 7, "czarny", "czarny", figury.pion, false, false),
+  new PoleSzachownicy(5, "e", 7, "bialy", "czarny", figury.pion, false, false),
+  new PoleSzachownicy(6, "f", 7, "czarny", "czarny", figury.pion, false, false),
+  new PoleSzachownicy(7, "g", 7, "bialy", "czarny", figury.pion, false, false),
+  new PoleSzachownicy(8, "h", 7, "czarny", "brak", figury.brak, false, false)
 
 ]
 
 plansza[6] = [
-  new PoleSzachownicy(1, "a", 2, "bialy", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(2, "b", 2, "czarny", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(3, "c", 2, "bialy", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(4, "d", 2, "czarny", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(5, "e", 2, "bialy", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(6, "f", 2, "czarny", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(7, "g", 2, "bialy", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(8, "h", 2, "czarny", "bialy", figury.pion, false, false)
+  new PoleSzachownicy(1, "a", 2, "czarny", "bialy", figury.pion, false, false),
+  new PoleSzachownicy(2, "b", 2, "bialy", "bialy", figury.pion, false, false),
+  new PoleSzachownicy(3, "c", 2, "czarny", "bialy", figury.pion, false, false),
+  new PoleSzachownicy(4, "d", 2, "bialy", "bialy", figury.pion, false, false),
+  new PoleSzachownicy(5, "e", 2, "czarny", "bialy", figury.pion, false, false),
+  new PoleSzachownicy(6, "f", 2, "bialy", "bialy", figury.pion, false, false),
+  new PoleSzachownicy(7, "g", 2, "czarny", "bialy", figury.pion, false, false),
+  new PoleSzachownicy(8, "h", 2, "bialy", "bialy", figury.pion, false, false)
 ]
 
 plansza[7] = [
-  new PoleSzachownicy(1, "a", 1, "czarny", "bialy", figury.wieza, false, false),
-  new PoleSzachownicy(2, "b", 1, "bialy", "bialy", figury.skoczek, false, false),
-  new PoleSzachownicy(3, "c", 1, "czarny", "bialy", figury.goniec, false, false),
-  new PoleSzachownicy(4, "d", 1, "bialy", "bialy", figury.hetman, false, false),
-  new PoleSzachownicy(5, "e", 1, "czarny", "bialy", figury.krol, false, false),
-  new PoleSzachownicy(6, "f", 1, "bialy", "bialy", figury.goniec, false, false),
-  new PoleSzachownicy(7, "g", 1, "czarny", "bialy", figury.skoczek, false, false),
-  new PoleSzachownicy(8, "h", 1, "bialy", "bialy", figury.wieza, false, false)
+  new PoleSzachownicy(1, "a", 1, "bialy", "bialy", figury.wieza, false, false),
+  new PoleSzachownicy(2, "b", 1, "czarny", "bialy", figury.skoczek, false, false),
+  new PoleSzachownicy(3, "c", 1, "bialy", "bialy", figury.goniec, false, false),
+  new PoleSzachownicy(4, "d", 1, "czarny", "bialy", figury.hetman, false, false),
+  new PoleSzachownicy(5, "e", 1, "bialy", "bialy", figury.krol, false, false),
+  new PoleSzachownicy(6, "f", 1, "czarny", "bialy", figury.goniec, false, false),
+  new PoleSzachownicy(7, "g", 1, "bialy", "bialy", figury.skoczek, false, false),
+  new PoleSzachownicy(8, "h", 1, "czarny", "bialy", figury.wieza, false, false)
 ]
 
 
@@ -317,6 +317,11 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
           ktoSieRusza.y = col;
           break;
           case "Wieza":
+            // Jesli gracz proboje sie ruszyc nie na swoim ruchu
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              break;
+            }
+
             let tempx = row;
             let tempy = col;
             let startCell = szachownica[tempx][tempy];
@@ -450,7 +455,43 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
     updateSzachownica(szachownica);
   }
 
-  return <div className='poleSzachownicy' onClick={poleClick}>{PoleSzachownicy.kolorPola} {PoleSzachownicy.kolorPrzeciwnika} - {PoleSzachownicy.figura} {PoleSzachownicy.czySieRusza ? "True" : "False"}</div>;
+  let pieceImageName;
+
+  if (PoleSzachownicy.kolorPrzeciwnika == "bialy") {
+    pieceImageName = "B";
+  }
+  else {
+    pieceImageName = "C";
+  }
+  switch (PoleSzachownicy.figura) {
+    case figury.brak:
+
+    case figury.pion:
+      pieceImageName += "Pion.png";
+      break;
+    case figury.skoczek:
+      pieceImageName += "Skoczek.png";
+      break;
+    case figury.goniec:
+      pieceImageName += "Goniec.png";
+      break;
+    case figury.wieza:
+      pieceImageName += "Wierza.png";
+      break;
+    case figury.hetman:
+      pieceImageName += "Hetman.png";
+      break;
+    case figury.krol:
+      pieceImageName += "Krol.png";
+      break;
+  }
+
+
+
+  return <div className={PoleSzachownicy.kolorPola == "bialy" ? 'poleSzachownicy bialePole' : 'poleSzachownicy czarnePole'} onClick={poleClick}>
+    {PoleSzachownicy.figura != figury.brak ? <img className="zdjecieFigura" src={"./public/assets/" + pieceImageName}/> : <></>}
+    {PoleSzachownicy.czySieRusza ? PoleSzachownicy.czyBije ? <img src={"./public/assets/Attack.png"} className='zdjecieRuch'/> : <img src={"./public/assets/Move.png"} className='zdjecieRuch'/> : <></>}
+  </div>;
 }
 
 export default Gra
