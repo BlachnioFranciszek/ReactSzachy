@@ -225,7 +225,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
               if (row == 1) {
                 if (szachownica[row+1][col].figura == figury.brak) {
                   szachownica[row+1][col].czySieRusza = true;
-                  if (szachownica[row+2][col].figura = figury.brak) {
+                  if (szachownica[row+2][col].figura == figury.brak) {
                     szachownica[row+2][col].czySieRusza = true;
                   }
                 }
