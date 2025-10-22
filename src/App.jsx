@@ -253,7 +253,39 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
           ktoSieRusza.y = col;
           break;
           case "Skoczek":
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              break;
+            }
+            let xmozliwe = [row + 2, row + 1, row - 1, row - 2, row-2, row-1, row+1, row+2];
+            let ymozliwe = [col + 1, col + 2, col + 2, col + 1, col-1, col-2, col-2, col-1];
+
             
+            for (let i = 0; i < 8; i++) {              
+
+              if (xmozliwe[i] < 0 || xmozliwe[i] > 7 || ymozliwe[i] < 0 || ymozliwe[i] > 7) {
+                console.log("problem");
+                continue;
+              }else{
+                console.log(xmozliwe[i]);
+                console.log(ymozliwe[i]);
+                let cell = szachownica[xmozliwe[i]][ymozliwe[i]];
+                console.log("true");
+                if (cell == figury.brak) {
+                  
+                  cell.czySieRusza = true;
+                  ktoSieRusza.x = row;
+                  ktoSieRusza.y = col;
+                } else {
+                  if (cell.kolorPrzeciwnika !== szachownica[row][col] .kolorPrzeciwnika) {
+                    cell.czyBije = true;
+                    cell.czySieRusza = true;
+                    ktoSieRusza.x = row;
+                    ktoSieRusza.y = col;
+                  }
+                }
+              } 
+            }
+
           break;
           case "Goniec":
             // Jesli gracz proboje sie ruszyc nie na swoim ruchu
@@ -317,11 +349,17 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
           ktoSieRusza.y = col;
           break;
           case "Wieza":
+<<<<<<< HEAD
             // Jesli gracz proboje sie ruszyc nie na swoim ruchu
             if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
               break;
             }
 
+=======
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              break;
+            }
+>>>>>>> b96b9dc0ee641e643a6e5b8baec3ee3355910672
             let tempx = row;
             let tempy = col;
             let startCell = szachownica[tempx][tempy];
@@ -403,10 +441,43 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
             }
             break;
           case "Hetman":
+            
           
           break;
           case "Krol":
-          
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              break;
+            }
+            let xxmozliwe = [row + 1, row + 1, row , row - 1, row - 1, row - 1, row, row+1];
+            let yymozliwe = [col , col + 1, col +1 , col + 1, col , col - 1, col -1, col-1];
+            
+            for (let i = 0; i < 8; i++) {              
+
+              if (xxmozliwe[i] < 0 || xxmozliwe[i] > 7 || yymozliwe[i] < 0 || yymozliwe[i] > 7) {
+                console.log("problem");
+                continue;
+              }else{
+                console.log(xxmozliwe[i]);
+                console.log(yymozliwe[i]);
+                let cell = szachownica[xxmozliwe[i]][yymozliwe[i]];
+                console.log("true");
+                if (cell == figury.brak) {
+                  
+                  cell.czySieRusza = true;
+                  ktoSieRusza.x = row;
+                  ktoSieRusza.y = col;
+                } else {
+                  if (cell.kolorPrzeciwnika !== szachownica[row][col] .kolorPrzeciwnika) {
+                    cell.czyBije = true;
+                    cell.czySieRusza = true;
+                    ktoSieRusza.x = row;
+                    ktoSieRusza.y = col;
+                  }
+                }
+              } 
+            }
+
+          break;
           break;
         default:break;
       }
