@@ -87,7 +87,7 @@ plansza[1] = [
   new PoleSzachownicy(5, "e", 7, "bialy", "czarny", figury.pion, false, false),
   new PoleSzachownicy(6, "f", 7, "czarny", "czarny", figury.pion, false, false),
   new PoleSzachownicy(7, "g", 7, "bialy", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(8, "h", 7, "czarny", "brak", figury.brak, false, false)
+  new PoleSzachownicy(8, "h", 7, "czarny", "brak", figury.pion, false, false)
 
 ]
 
