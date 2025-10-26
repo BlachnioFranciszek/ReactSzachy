@@ -276,7 +276,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                   ktoSieRusza.x = row;
                   ktoSieRusza.y = col;
                 } else {
-                  if (cell.kolorPrzeciwnika !== szachownica[row][col] .kolorPrzeciwnika) {
+                  if (cell.kolorPrzeciwnika !== szachownica[row][col].kolorPrzeciwnika) {
                     cell.czyBije = true;
                     cell.czySieRusza = true;
                     ktoSieRusza.x = row;
@@ -715,22 +715,22 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
     case figury.brak:
 
     case figury.pion:
-      pieceImageName += "Pion.png";
+      pieceImageName += "Pion.svg";
       break;
     case figury.skoczek:
-      pieceImageName += "Skoczek.png";
+      pieceImageName += "Skoczek.svg";
       break;
     case figury.goniec:
-      pieceImageName += "Goniec.png";
+      pieceImageName += "Goniec.svg";
       break;
     case figury.wieza:
-      pieceImageName += "Wierza.png";
+      pieceImageName += "Wierza.svg";
       break;
     case figury.hetman:
-      pieceImageName += "Hetman.png";
+      pieceImageName += "Hetman.svg";
       break;
     case figury.krol:
-      pieceImageName += "Krol.png";
+      pieceImageName += "Krol.svg";
       break;
   }
 
