@@ -5,6 +5,8 @@ const wysokosc = 8;
 const szerokosc = 8;
 const ktoSieRusza = {x: undefined, y: undefined};
 var czySieRuszaBialy = true;
+var czyPromocja = false;
+var czyObracac = true;
 
 const figury = {
   brak: "Brak",
@@ -26,6 +28,7 @@ class PoleSzachownicy {
     this.figura = figura;
     this.czyBije = czyBije;
     this.czySieRusza = czySieRusza;
+    this.czyPromocja = false;
   }
 }
 
@@ -75,7 +78,7 @@ plansza[0] = [
   new PoleSzachownicy(5, "e", 8, "czarny", "czarny", figury.krol, false, false),
   new PoleSzachownicy(6, "f", 8, "bialy", "czarny", figury.goniec, false, false),
   new PoleSzachownicy(7, "g", 8, "czarny", "czarny", figury.skoczek, false, false),
-  new PoleSzachownicy(8, "h", 8, "bialy", "czarny", figury.wieza, false, false)
+  new PoleSzachownicy(8, "h", 8, "bialy", "czarny", figury.brak, false, false)
 ]
 
 plansza[1] = [
@@ -86,7 +89,7 @@ plansza[1] = [
   new PoleSzachownicy(5, "e", 7, "bialy", "czarny", figury.pion, false, false),
   new PoleSzachownicy(6, "f", 7, "czarny", "czarny", figury.pion, false, false),
   new PoleSzachownicy(7, "g", 7, "bialy", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(8, "h", 7, "czarny", "czarny", figury.pion, false, false)
+  new PoleSzachownicy(8, "h", 7, "czarny", "bialy", figury.pion, false, false)
 
 ]
 
@@ -153,7 +156,7 @@ function Plansza() {
   }
 
   return (
-    <div id='szachownicaDiv'>
+    <div id='szachownicaDiv' className={czySieRuszaBialy && czyObracac ? "" : "obroc"}>
       {doDruku}
     </div>
   );
@@ -170,10 +173,51 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
     }
   }
 
+  function promocjaClick(figura) {
+    let col = PoleSzachownicy.y - 1;
+    let row = szachownica.length - PoleSzachownicy.x;
+    console.log(col)
+    console.log(row)
+    switch (figura) {
+      case figury.goniec:
+        szachownica[row][col].figura = figury.goniec;
+        szachownica[row][col].kolorPrzeciwnika = (czySieRuszaBialy ? "bialy" : "czarny");
+        break;
+      case figury.skoczek:
+        szachownica[row][col].figura = figury.skoczek;
+        szachownica[row][col].kolorPrzeciwnika = (czySieRuszaBialy ? "bialy" : "czarny");
+        break;
+      case figury.wieza:
+        szachownica[row][col].figura = figury.wieza;
+        szachownica[row][col].kolorPrzeciwnika = (czySieRuszaBialy ? "bialy" : "czarny");
+        break;
+      case figury.hetman:
+        szachownica[row][col].figura = figury.hetman;
+        szachownica[row][col].kolorPrzeciwnika = (czySieRuszaBialy ? "bialy" : "czarny");
+        break;
+    }
+
+    szachownica[row][col].czyPromocja = false;
+    czyPromocja = false;
+    czySieRuszaBialy = !czySieRuszaBialy;
+    szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
+    updateSzachownica(szachownica);
+  }
+
   function poleClick() {
     console.log(szachownica);
     let col = PoleSzachownicy.y - 1;
     let row = szachownica.length - PoleSzachownicy.x;
+    if (czyPromocja) {
+      for (let i = 0; i < szachownica.length; i++) {
+        for (let j = 0; j < szachownica.length; j++) {
+          szachownica[i][j].czyPromocja = false;
+        }
+      }
+      czyPromocja = false;
+      updateSzachownica(szachownica);
+      return;
+    }
     if (!PoleSzachownicy.czySieRusza) {
       resetBoard();
       let piece = PoleSzachownicy.figura;
@@ -618,7 +662,14 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
     }
     else {
       if (czySieRuszaBialy) {
-        if (szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[row][col].czyBije) {
+        if (szachownica[ktoSieRusza.x][ktoSieRusza.y].figura == figury.pion && ktoSieRusza.x == 1) {
+          szachownica[row][col].czyPromocja = true;
+          czyPromocja = true;
+          resetBoard();
+          updateSzachownica(szachownica);
+          return;
+        }
+        else if (szachownica[row][col].kolorPrzeciwnika == "czarny" && szachownica[row][col].czyBije) {
           szachownica[row][col].figura = szachownica[ktoSieRusza.x][ktoSieRusza.y].figura;
           szachownica[row][col].kolorPrzeciwnika = szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika;
           szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
@@ -632,7 +683,14 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
         }
       }
       else {
-        if (szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[row][col].czyBije) {
+        if (szachownica[ktoSieRusza.x][ktoSieRusza.y].figura == figury.pion && ktoSieRusza.x == 7) {
+          szachownica[row][col].czyPromocja = true;
+          czyPromocja = true;
+          resetBoard();
+          updateSzachownica(szachownica);
+          return;
+        }
+        else if (szachownica[row][col].kolorPrzeciwnika == "bialy" && szachownica[row][col].czyBije) {
           szachownica[row][col].figura = szachownica[ktoSieRusza.x][ktoSieRusza.y].figura;
           szachownica[row][col].kolorPrzeciwnika = szachownica[ktoSieRusza.x][ktoSieRusza.y].kolorPrzeciwnika;
           szachownica[ktoSieRusza.x][ktoSieRusza.y].figura = figury.brak;
@@ -647,14 +705,8 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
       }
 
       resetBoard();
-      // Ruszenie sie
 
-      if(czySieRuszaBialy){
-        czySieRuszaBialy=false;
-      }
-      else{
-        czySieRuszaBialy=true;
-      }
+      czySieRuszaBialy = !czySieRuszaBialy;
     }
 
     updateSzachownica(szachownica);
@@ -691,12 +743,67 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
       break;
   }
 
+  if (PoleSzachownicy.czyPromocja) {
+    console.log(PoleSzachownicy)
+    console.log(PoleSzachownicy.y)
+    return <PromocjaPiona czyBialy={czySieRuszaBialy} promocjaClick={promocjaClick} />;
+  }
+  else {
+    return (
+      <div className={"poleSzachownicy" + (PoleSzachownicy.kolorPola == "bialy" ? ' bialePole' : ' czarnePole') + (czyPromocja ? ' unFocused' : '') + (czySieRuszaBialy && czyObracac ? "" : " obroc")} onClick={poleClick}>
+        {PoleSzachownicy.figura != figury.brak ? <img className="zdjecieFigura" src={"./public/assets/" + pieceImageName}/> : <></>}
+        {PoleSzachownicy.czySieRusza ? PoleSzachownicy.czyBije ? <img src={"./public/assets/Attack.png"} className='zdjecieRuch'/> : <img src={"./public/assets/Move.png"} className='zdjecieRuch'/> : <></>}
+      </div>
+    );
+  }
 
+}
 
-  return <div className={PoleSzachownicy.kolorPola == "bialy" ? 'poleSzachownicy bialePole' : 'poleSzachownicy czarnePole'} onClick={poleClick}>
-    {PoleSzachownicy.figura != figury.brak ? <img className="zdjecieFigura" src={"./public/assets/" + pieceImageName}/> : <></>}
-    {PoleSzachownicy.czySieRusza ? PoleSzachownicy.czyBije ? <img src={"./public/assets/Attack.png"} className='zdjecieRuch'/> : <img src={"./public/assets/Move.png"} className='zdjecieRuch'/> : <></>}
-  </div>;
+function PromocjaPiona({ czyBialy: czyBialy, promocjaClick: promocjaClick } ) {
+  let prefix = "C";
+  if (czyBialy) {
+    prefix = "B";
+  }
+
+  let doWyswietlenia = <></>;
+  if (czyBialy) {
+    doWyswietlenia = (
+      <div className='polaPromocji'>
+        <div onClick={() => promocjaClick(figury.hetman)}>
+          <img src={"./public/assets/" + prefix + "Hetman.svg"}/>
+        </div>
+        <div onClick={() => promocjaClick(figury.skoczek)}>
+          <img src={"./public/assets/" + prefix + "Skoczek.svg"}/>
+        </div>
+        <div onClick={() => promocjaClick(figury.wieza)}>
+          <img src={"./public/assets/" + prefix + "Wierza.svg"}/>
+        </div>
+        <div onClick={() => promocjaClick(figury.goniec)}>
+          <img src={"./public/assets/" + prefix + "Goniec.svg"}/>
+        </div>
+      </div>
+    )
+  }
+  else {
+    doWyswietlenia = (
+      <div className='polaPromocji'>
+        <div onClick={() => promocjaClick(figury.goniec)}>
+          <img src={"./public/assets/" + prefix + "Goniec.svg"}/>
+        </div>
+        <div onClick={() => promocjaClick(figury.wieza)}>
+          <img src={"./public/assets/" + prefix + "Wierza.svg"}/>
+        </div>
+        <div onClick={() => promocjaClick(figury.skoczek)}>
+          <img src={"./public/assets/" + prefix + "Skoczek.svg"}/>
+        </div>
+        <div onClick={() => promocjaClick(figury.hetman)}>
+          <img src={"./public/assets/" + prefix + "Hetman.svg"}/>
+        </div>
+      </div>
+    )
+  }
+
+  return doWyswietlenia;
 }
 
 export default Gra
