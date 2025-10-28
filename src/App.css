@@ -1,7 +1,21 @@
-.poleSzachownicy {
+:root {
+  --poleSzerokoscOrazWysokosc: 100px;
+}
+
+.unFocused {
+  opacity: 50%;
+}
+
+.obroc {
+  transform: rotate(180deg);
+  transform-origin: center center;
+}
+
+.poleSzachownicy, .polaPromocji div {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
+  height: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
+  padding: 3px;
   text-align: center;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -11,7 +25,7 @@
 }
 
 .zdjecieFigura {
-  height: 100px;
+  height: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
   z-index: 1;
 }
 
@@ -31,7 +45,23 @@
 }
 
 #szachownicaDiv {
+  width: calc(var(--poleSzerokoscOrazWysokosc) * 8);
+  height: calc(var(--poleSzerokoscOrazWysokosc) * 8);
   display: grid;
-  grid-template-columns: repeat(8, 100px);
-  gap: 5px; 
+  position: relative;
+  grid-template-columns: repeat(8, var(--poleSzerokoscOrazWysokosc));
+}
+
+.polaPromocji {
+  height: calc(var(--poleSzerokoscOrazWysokosc) * 1);
+  opacity: 100% !important;
+  z-index: 3;
+}
+
+.polaPromocji div {
+  background-color: white;
+}
+
+.polaPromocji img {
+  height: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
 }
