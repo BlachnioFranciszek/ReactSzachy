@@ -423,6 +423,11 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
             }
             break;
           case "Hetman":
+            // Jesli gracz proboje sie ruszyc nie na swoim ruchu
+            if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
+              break;
+            }
+
             for (let tempcol = col+1, temprow = row+1; tempcol <= 7 && temprow <= 7; tempcol++, temprow++) {
               if (szachownica[temprow][tempcol].figura == figury.brak) {
                 szachownica[temprow][tempcol].czySieRusza = true;
@@ -482,7 +487,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
           let temy2= col-1;
           let temx1 = row+1;
           let temx2 = row-1;
-          for(temy1; temy1 < 7; temy1++){
+          for(temy1; temy1 <= 7; temy1++){
             if(temy1 != 8){
               if(szachownica[row][temy1].figura == figury.brak){
                 szachownica[row][temy1].czySieRusza = true;
@@ -505,7 +510,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                 break;
             }
           }
-          for(temy2; temy2 > 0; temy2--){
+          for(temy2; temy2 >= 0; temy2--){
             if(temy2 != -1){
               if(szachownica[row][temy2].figura == figury.brak){
                 szachownica[row][temy2].czySieRusza = true;
@@ -528,7 +533,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                 break;
             }
           }
-          for(temx1; temx1 < 7; temx1++){
+          for(temx1; temx1 <= 7; temx1++){
             if(temx1 != 8){
               if(szachownica[temx1][col].figura == figury.brak){
                 szachownica[temx1][col].czySieRusza = true;
@@ -552,7 +557,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
             }
           }
 
-          for(temx2; temx2 > 0; temx2--){
+          for(temx2; temx2 >= 0; temx2--){
             if(temx2 != -1){
               if(szachownica[temx2][col].figura == figury.brak){
                 szachownica[temx2][col].czySieRusza = true;
