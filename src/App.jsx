@@ -262,7 +262,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                 continue;
               }else{
                 let cell = szachownica[xmozliwe[i]][ymozliwe[i]];
-                if (cell == figury.brak) {
+                if (cell.figura == figury.brak) {
                   
                   cell.czySieRusza = true;
                   ktoSieRusza.x = row;
@@ -595,13 +595,14 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                 continue;
               }else{
                 let cell = szachownica[xxmozliwe[i]][yymozliwe[i]];
-                if (cell == figury.brak) {
+                if (cell.figura == figury.brak) {
                   
                   cell.czySieRusza = true;
                   ktoSieRusza.x = row;
                   ktoSieRusza.y = col;
                 } else {
-                  if (cell.kolorPrzeciwnika !== szachownica[row][col] .kolorPrzeciwnika) {
+                  if (cell.kolorPrzeciwnika !== szachownica[row][col].kolorPrzeciwnika) {
+                    console.log(cell)
                     cell.czyBije = true;
                     cell.czySieRusza = true;
                     ktoSieRusza.x = row;
