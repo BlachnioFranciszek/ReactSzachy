@@ -78,7 +78,7 @@ plansza[0] = [
   new PoleSzachownicy(5, "e", 8, "czarny", "czarny", figury.krol, false, false),
   new PoleSzachownicy(6, "f", 8, "bialy", "czarny", figury.goniec, false, false),
   new PoleSzachownicy(7, "g", 8, "czarny", "czarny", figury.skoczek, false, false),
-  new PoleSzachownicy(8, "h", 8, "bialy", "czarny", figury.brak, false, false)
+  new PoleSzachownicy(8, "h", 8, "bialy", "czarny", figury.wieza, false, false)
 ]
 
 plansza[1] = [
@@ -89,7 +89,7 @@ plansza[1] = [
   new PoleSzachownicy(5, "e", 7, "bialy", "czarny", figury.pion, false, false),
   new PoleSzachownicy(6, "f", 7, "czarny", "czarny", figury.pion, false, false),
   new PoleSzachownicy(7, "g", 7, "bialy", "czarny", figury.pion, false, false),
-  new PoleSzachownicy(8, "h", 7, "czarny", "bialy", figury.pion, false, false)
+  new PoleSzachownicy(8, "h", 7, "czarny", "czarny", figury.pion, false, false)
 
 ]
 
@@ -627,6 +627,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
 
           break;
           case "Krol":
+            
             if ((czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "czarny") || (!czySieRuszaBialy && szachownica[row][col].kolorPrzeciwnika == "bialy")) {
               break;
             }
