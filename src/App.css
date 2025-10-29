@@ -2,6 +2,10 @@
   --poleSzerokoscOrazWysokosc: 100px;
 }
 
+body{
+  background-color: rgb(68, 68, 68);
+}
+
 .unFocused {
   opacity: 50%;
 }
@@ -30,11 +34,17 @@
 }
 
 .bialePole {
-  background-color: gray;
+  background-image: url("./public/assets/CPole.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .czarnePole {
-  background-color: wheat;
+  background-image: url("./public/assets/BPole.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .zdjecieRuch {
@@ -45,6 +55,9 @@
 }
 
 #szachownicaDiv {
+  border: #ffcf57 8px solid;
+  margin: 0 auto;
+  margin-top: 50px;
   width: calc(var(--poleSzerokoscOrazWysokosc) * 8);
   height: calc(var(--poleSzerokoscOrazWysokosc) * 8);
   display: grid;
