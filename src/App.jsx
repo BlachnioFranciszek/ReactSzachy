@@ -1243,28 +1243,40 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
                 continue;
               }else{
                 let cell = szachownica[xxmozliwe[i]][yymozliwe[i]];
-                console.log(row + " ");
-                console.log(col);
-                if(row == 7 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "bialy" && rbroszada == true && szachownica[row][col + 2].figura == figury.brak && szachownica[row][col + 1].figura == figury.brak){
-                  szachownica[row][col+2].czySieRusza = true;
-                  ktoSieRusza.x = row;
-                  ktoSieRusza.y = col;
+                
+                if (szachownica[row][col+1].figura == figury.brak && szachownica[row][col+2].figura == figury.brak) {
+                  szachownica[row][col+1].figura = figury.krol;
+                  szachownica[row][col+1].kolorPrzeciwnika = szachownica[row][col].kolorPrzeciwnika;
+                  szachownica[row][col+2].figura = figury.krol;
+                  szachownica[row][col+2].kolorPrzeciwnika = szachownica[row][col].kolorPrzeciwnika;
+
+                  if(row == 7 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "bialy" && rbroszada == true && !czySzach(szachownica, szachownica[row][col].kolorPrzeciwnika)){
+                    szachownica[row][col+2].czySieRusza = true;
+                  }
+                  else if(row == 0 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "czarny" && rcroszada == true && !czySzach(szachownica, szachownica[row][col].kolorPrzeciwnika)){
+                    szachownica[row][col+2].czySieRusza = true;
+                  }
+
+                  szachownica[row][col+1].figura = figury.brak;
+                  szachownica[row][col+2].figura = figury.brak;
                 }
-                if(row == 7 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "bialy" && rbroszada == true && szachownica[row][col - 3].figura == figury.brak && szachownica[row][col - 2].figura == figury.brak && szachownica[row][col - 1].figura == figury.brak){
-                  szachownica[row][col-2].czySieRusza = true;
-                  ktoSieRusza.x = row;
-                  ktoSieRusza.y = col;
+                if (szachownica[row][col-1].figura == figury.brak && szachownica[row][col-2].figura == figury.brak && szachownica[row][col-3].figura == figury.brak) {
+                  szachownica[row][col-1].figura = figury.krol;
+                  szachownica[row][col-1].kolorPrzeciwnika = szachownica[row][col].kolorPrzeciwnika;
+                  szachownica[row][col-2].figura = figury.krol;
+                  szachownica[row][col-2].kolorPrzeciwnika = szachownica[row][col].kolorPrzeciwnika;
+
+                  if(row == 7 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "bialy" && lbroszada == true && !czySzach(szachownica, szachownica[row][col].kolorPrzeciwnika)){
+                    szachownica[row][col-2].czySieRusza = true;
+                  }
+                  else if(row == 0 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "czarny" && lcroszada == true && !czySzach(szachownica, szachownica[row][col].kolorPrzeciwnika)){
+                    szachownica[row][col-2].czySieRusza = true;
+                  }
+
+                  szachownica[row][col-1].figura = figury.brak;
+                  szachownica[row][col-2].figura = figury.brak;
                 }
-                if(row == 0 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "czarny" && rbroszada == true && szachownica[row][col + 2].figura == figury.brak && szachownica[row][col + 1].figura == figury.brak){
-                  szachownica[row][col+2].czySieRusza = true;
-                  ktoSieRusza.x = row;
-                  ktoSieRusza.y = col;
-                }
-                if(row == 0 && col == 4 && szachownica[row][col].kolorPrzeciwnika == "czarny" && rbroszada == true && szachownica[row][col - 3].figura == figury.brak && szachownica[row][col - 2].figura == figury.brak && szachownica[row][col - 1].figura == figury.brak){
-                  szachownica[row][col-2].czySieRusza = true;
-                  ktoSieRusza.x = row;
-                  ktoSieRusza.y = col;
-                }
+
                 if (cell.figura == figury.brak) {
                   szachownica[row][col].figura = figury.brak;
                   cell.figura = figury.krol;
