@@ -15,6 +15,7 @@ body{
   transform-origin: center center;
 }
 
+
 .poleSzachownicy, .polaPromocji div {
   position: relative;
   width: calc(var(--poleSzerokoscOrazWysokosc) - 12px);
@@ -77,4 +78,22 @@ body{
 
 .polaPromocji img {
   height: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
+}
+
+.szach.bialePole {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 5%,
+    rgba(255, 0, 0, 1) 35%, 
+    rgba(255, 0, 0, 0) 75%
+  ), url("./public/assets/CPole.svg");
+}
+
+.szach.czarnePole {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 5%,
+    rgba(255, 0, 0, 1) 35%, 
+    rgba(255, 0, 0, 0) 75%
+  ), url("./public/assets/BPole.svg");
 }
