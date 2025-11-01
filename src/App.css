@@ -15,11 +15,12 @@ body{
   transform-origin: center center;
 }
 
+
 .poleSzachownicy, .polaPromocji div {
   position: relative;
-  width: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
-  height: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
-  padding: 3px;
+  width: calc(var(--poleSzerokoscOrazWysokosc) - 12px);
+  height: calc(var(--poleSzerokoscOrazWysokosc) - 12px);
+  padding: 6px;
   text-align: center;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -29,7 +30,7 @@ body{
 }
 
 .zdjecieFigura {
-  height: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
+  height: calc(var(--poleSzerokoscOrazWysokosc) - 12px);
   z-index: 1;
 }
 
@@ -77,4 +78,22 @@ body{
 
 .polaPromocji img {
   height: calc(var(--poleSzerokoscOrazWysokosc) - 6px);
+}
+
+.szach.bialePole {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 5%,
+    rgba(255, 0, 0, 1) 35%, 
+    rgba(255, 0, 0, 0) 75%
+  ), url("./public/assets/CPole.svg");
+}
+
+.szach.czarnePole {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 5%,
+    rgba(255, 0, 0, 1) 35%, 
+    rgba(255, 0, 0, 0) 75%
+  ), url("./public/assets/BPole.svg");
 }
