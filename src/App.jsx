@@ -119,7 +119,7 @@ plansza[6] = [
   new PoleSzachownicy(5, "e", 2, "czarny", "bialy", figury.pion, false, false),
   new PoleSzachownicy(6, "f", 2, "bialy", "bialy", figury.pion, false, false),
   new PoleSzachownicy(7, "g", 2, "czarny", "bialy", figury.pion, false, false),
-  new PoleSzachownicy(8, "h", 2, "bialy", "bialy", figury.pion, false, false)
+  new PoleSzachownicy(8, "h", 2, "bialy", "czarny", figury.pion, false, false)
 ]
 
 plansza[7] = [
@@ -2255,7 +2255,7 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
         if (szachownica[ktoSieRusza.x][ktoSieRusza.y].figura == figury.krol || (row == 0 && col == 0) || (ktoSieRusza.x == 0 && ktoSieRusza.y == 0)) {
           lcroszada = false;
         }
-        if (szachownica[ktoSieRusza.x][ktoSieRusza.y].figura == figury.pion && ktoSieRusza.x == 7) {
+        if (szachownica[ktoSieRusza.x][ktoSieRusza.y].figura == figury.pion && ktoSieRusza.x == 6) {
           szachownica[row][col].czyPromocja = true;
           czyPromocja = true;
           resetBoard();
@@ -2374,7 +2374,7 @@ function PromocjaPiona({ czyBialy: czyBialy, promocjaClick: promocjaClick } ) {
   }
   else {
     doWyswietlenia = (
-      <div className='polaPromocji'>
+      <div className='polaPromocji obroc'>
         <div onClick={() => promocjaClick(figury.goniec)}>
           <img src={"./public/assets/" + prefix + "Goniec.svg"}/>
         </div>
