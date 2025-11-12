@@ -61,14 +61,14 @@ body{
 }
 
 .bialePole {
-  background-image: url("./public/assets/CPole.svg");
+  background-image: url("./assets/CPole.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .czarnePole {
-  background-image: url("./public/assets/BPole.svg");
+  background-image: url("./assets/BPole.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -112,7 +112,7 @@ body{
     rgba(255, 0, 0, 1) 5%,
     rgba(255, 0, 0, 1) 35%, 
     rgba(255, 0, 0, 0) 75%
-  ), url("./public/assets/CPole.svg");
+  ), url("./assets/CPole.svg");
 }
 
 .szach.czarnePole {
@@ -121,5 +121,5 @@ body{
     rgba(255, 0, 0, 1) 5%,
     rgba(255, 0, 0, 1) 35%, 
     rgba(255, 0, 0, 0) 75%
-  ), url("./public/assets/BPole.svg");
+  ), url("./assets/BPole.svg");
 }

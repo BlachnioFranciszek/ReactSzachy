@@ -2490,8 +2490,8 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
   else {
     return (
       <div className={"poleSzachownicy" + (PoleSzachownicy.kolorPola == "bialy" ? ' bialePole' : ' czarnePole') + (czyPromocja ? ' unFocused' : '') + (czySieRuszaBialy && czyObracac ? "" : " obroc") + (czySzachVar && PoleSzachownicy.figura == figury.krol && ((PoleSzachownicy.kolorPrzeciwnika != "czarny" && czySieRuszaBialy) || (PoleSzachownicy.kolorPrzeciwnika != "bialy" && !czySieRuszaBialy)) ? " szach" : "")} onClick={poleClick}>
-        {PoleSzachownicy.figura != figury.brak ? <img className={"zdjecieFigura"} src={"./public/assets/" + pieceImageName}/> : <></>}
-        {PoleSzachownicy.czySieRusza ? PoleSzachownicy.czyBije ? <img src={"./public/assets/Attack.png"} className='zdjecieRuch'/> : <img src={"./public/assets/Move.png"} className='zdjecieRuch'/> : <></>}
+        {PoleSzachownicy.figura != figury.brak ? <img className={"zdjecieFigura"} src={"./assets/" + pieceImageName}/> : <></>}
+        {PoleSzachownicy.czySieRusza ? PoleSzachownicy.czyBije ? <img src={"./assets/Attack.png"} className='zdjecieRuch'/> : <img src={"./assets/Move.png"} className='zdjecieRuch'/> : <></>}
       </div>
     );
   }
@@ -2509,16 +2509,16 @@ function PromocjaPiona({ czyBialy: czyBialy, promocjaClick: promocjaClick } ) {
     doWyswietlenia = (
       <div className='polaPromocji'>
         <div onClick={() => promocjaClick(figury.hetman)}>
-          <img src={"./public/assets/" + prefix + "Hetman.svg"}/>
+          <img src={"./assets/" + prefix + "Hetman.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.skoczek)}>
-          <img src={"./public/assets/" + prefix + "Skoczek.svg"}/>
+          <img src={"./assets/" + prefix + "Skoczek.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.wieza)}>
-          <img src={"./public/assets/" + prefix + "Wierza.svg"}/>
+          <img src={"./assets/" + prefix + "Wierza.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.goniec)}>
-          <img src={"./public/assets/" + prefix + "Goniec.svg"}/>
+          <img src={"./assets/" + prefix + "Goniec.svg"}/>
         </div>
       </div>
     )
@@ -2527,16 +2527,16 @@ function PromocjaPiona({ czyBialy: czyBialy, promocjaClick: promocjaClick } ) {
     doWyswietlenia = (
       <div className='polaPromocji obroc'>
         <div onClick={() => promocjaClick(figury.goniec)}>
-          <img src={"./public/assets/" + prefix + "Goniec.svg"}/>
+          <img src={"./assets/" + prefix + "Goniec.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.wieza)}>
-          <img src={"./public/assets/" + prefix + "Wierza.svg"}/>
+          <img src={"./assets/" + prefix + "Wierza.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.skoczek)}>
-          <img src={"./public/assets/" + prefix + "Skoczek.svg"}/>
+          <img src={"./assets/" + prefix + "Skoczek.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.hetman)}>
-          <img src={"./public/assets/" + prefix + "Hetman.svg"}/>
+          <img src={"./assets/" + prefix + "Hetman.svg"}/>
         </div>
       </div>
     )
