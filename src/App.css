@@ -61,14 +61,14 @@ body{
 }
 
 .bialePole {
-  background-image: url("./assets/CPole.svg");
+  background-image: url("./CPole.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .czarnePole {
-  background-image: url("./assets/BPole.svg");
+  background-image: url("./BPole.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
