@@ -2509,16 +2509,16 @@ function PromocjaPiona({ czyBialy: czyBialy, promocjaClick: promocjaClick } ) {
     doWyswietlenia = (
       <div className='polaPromocji'>
         <div onClick={() => promocjaClick(figury.hetman)}>
-          <img src={"./public/assets/" + prefix + "Hetman.svg"}/>
+          <img src={"./assets/" + prefix + "Hetman.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.skoczek)}>
-          <img src={"./public/assets/" + prefix + "Skoczek.svg"}/>
+          <img src={"./assets/" + prefix + "Skoczek.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.wieza)}>
-          <img src={"./public/assets/" + prefix + "Wierza.svg"}/>
+          <img src={"./assets/" + prefix + "Wierza.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.goniec)}>
-          <img src={"./public/assets/" + prefix + "Goniec.svg"}/>
+          <img src={"./assets/" + prefix + "Goniec.svg"}/>
         </div>
       </div>
     )
@@ -2527,16 +2527,16 @@ function PromocjaPiona({ czyBialy: czyBialy, promocjaClick: promocjaClick } ) {
     doWyswietlenia = (
       <div className='polaPromocji obroc'>
         <div onClick={() => promocjaClick(figury.goniec)}>
-          <img src={"./public/assets/" + prefix + "Goniec.svg"}/>
+          <img src={"./assets/" + prefix + "Goniec.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.wieza)}>
-          <img src={"./public/assets/" + prefix + "Wierza.svg"}/>
+          <img src={"./assets/" + prefix + "Wierza.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.skoczek)}>
-          <img src={"./public/assets/" + prefix + "Skoczek.svg"}/>
+          <img src={"./assets/" + prefix + "Skoczek.svg"}/>
         </div>
         <div onClick={() => promocjaClick(figury.hetman)}>
-          <img src={"./public/assets/" + prefix + "Hetman.svg"}/>
+          <img src={"./assets/" + prefix + "Hetman.svg"}/>
         </div>
       </div>
     )
