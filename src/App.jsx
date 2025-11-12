@@ -2490,8 +2490,8 @@ function Pole( {PoleSzachownicy: PoleSzachownicy, szachownica: szachownica, upda
   else {
     return (
       <div className={"poleSzachownicy" + (PoleSzachownicy.kolorPola == "bialy" ? ' bialePole' : ' czarnePole') + (czyPromocja ? ' unFocused' : '') + (czySieRuszaBialy && czyObracac ? "" : " obroc") + (czySzachVar && PoleSzachownicy.figura == figury.krol && ((PoleSzachownicy.kolorPrzeciwnika != "czarny" && czySieRuszaBialy) || (PoleSzachownicy.kolorPrzeciwnika != "bialy" && !czySieRuszaBialy)) ? " szach" : "")} onClick={poleClick}>
-        {PoleSzachownicy.figura != figury.brak ? <img className={"zdjecieFigura"} src={"./public/assets/" + pieceImageName}/> : <></>}
-        {PoleSzachownicy.czySieRusza ? PoleSzachownicy.czyBije ? <img src={"./public/assets/Attack.png"} className='zdjecieRuch'/> : <img src={"./public/assets/Move.png"} className='zdjecieRuch'/> : <></>}
+        {PoleSzachownicy.figura != figury.brak ? <img className={"zdjecieFigura"} src={"./assets/" + pieceImageName}/> : <></>}
+        {PoleSzachownicy.czySieRusza ? PoleSzachownicy.czyBije ? <img src={"./assets/Attack.png"} className='zdjecieRuch'/> : <img src={"./assets/Move.png"} className='zdjecieRuch'/> : <></>}
       </div>
     );
   }
